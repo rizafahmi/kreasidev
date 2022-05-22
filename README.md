@@ -1,5 +1,9 @@
 # Kreasidev
 
+Aplikasi buat pamerin karya developer dalam bentuk ide, repositori dan produk menarik. Dibuat dengan [ Elixir ](https://elixir-lang.org/) dan [ Phoenix framework ](https://www.phoenixframework.org/).
+
+## Getting Started
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
