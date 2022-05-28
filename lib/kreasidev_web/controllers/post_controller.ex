@@ -28,7 +28,8 @@ defmodule KreasidevWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Entries.get_post!(id)
-    render(conn, "show.html", post: post)
+    comment_changeset = Kreasidev.Entries.Comment.changeset(%Kreasidev.Entries.Comment{}, %{})
+    render(conn, "show.html", post: post, comment_changeset: comment_changeset)
   end
 
   def edit(conn, %{"id" => id}) do

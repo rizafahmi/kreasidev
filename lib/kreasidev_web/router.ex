@@ -18,7 +18,11 @@ defmodule KreasidevWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/posts", PostController
+
+    resources "/posts", PostController do
+      # resources "/comments", CommentController, only: [:create]
+      post "/comments", CommentController, :create
+    end
   end
 
   # Other scopes may use custom stacks.

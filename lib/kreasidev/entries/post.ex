@@ -8,6 +8,7 @@ defmodule Kreasidev.Entries.Post do
     field :title, :string
     field :upvote, :integer, default: 0
     field :url, :string
+    has_many :comments, Kreasidev.Entries.Comment
 
     timestamps()
   end
