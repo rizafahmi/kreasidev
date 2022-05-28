@@ -20,7 +20,6 @@ defmodule KreasidevWeb.Router do
     get "/", PageController, :index
 
     resources "/posts", PostController do
-      # resources "/comments", CommentController, only: [:create]
       post "/comments", CommentController, :create
     end
   end
