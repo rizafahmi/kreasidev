@@ -28,6 +28,7 @@ defmodule KreasidevWeb.PostController do
 
   def show(conn, %{"id" => id}) do
     post = Entries.get_post!(id)
+    post = Kreasidev.Repo.preload(post, :comments)
     comment_changeset = Kreasidev.Entries.Comment.changeset(%Kreasidev.Entries.Comment{}, %{})
     render(conn, "show.html", post: post, comment_changeset: comment_changeset)
   end
