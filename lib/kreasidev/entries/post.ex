@@ -16,6 +16,6 @@ defmodule Kreasidev.Entries.Post do
   def changeset(post, attrs) do
     post
     |> cast(attrs, [:title, :url, :body, :upvote, :slug])
-    |> validate_required([:title, :upvote])
+    |> validate_required([:title])
   end
 end
