@@ -17,7 +17,7 @@ defmodule KreasidevWeb.Router do
   scope "/", KreasidevWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    live "/", PageLive
     get("/process/:number", PageController, :process)
 
     resources "/posts", PostController do

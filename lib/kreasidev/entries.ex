@@ -17,9 +17,17 @@ defmodule Kreasidev.Entries do
       [%Post{}, ...]
 
   """
-  def list_posts do
-    Repo.all(Post)
+  def list_posts(params \\ %{}) do
+    from(
+      p in Post,
+      order_by: ^filter_order_by(params["order_by"])
+    )
+    |> Repo.all()
   end
+
+  defp filter_order_by("upvote_desc"), do: [desc: :upvote]
+  defp filter_order_by("upvote_asc"), do: [asc: :upvote]
+  defp filter_order_by(_), do: []
 
   @doc """
   Gets a single post.

@@ -2,10 +2,10 @@
   <%= for post <- @posts do %>
   <li class="list">
     <div class="upvote">
-      <button>🔼 <%= post.upvote %></button></div>
+      <button phx-click="upvote" phx-value-id={ post.id }>🔼 <%= post.upvote %></button></div>
       <div class="content">
         <div class="title">
-          <a href={ Routes.post_path(@conn, :show, post) }><%= post.title %></a>
+          <%=  live_redirect post.title, to: Routes.post_path(@socket, :show, post) %>
         </div>
         <%= if post.url do %>
           <div class="url"><%= post.url %></div>
@@ -18,6 +18,7 @@
 
 <div class="action">
   <div class="new">
-    <a href={ Routes.post_path(@conn, :new) }>New Post</a>
+    <!-- <a href={ Routes.post_path(@conn, :new) }>New Post</a> -->
+    <%= live_redirect "New Post", to: Routes.post_path(@socket, :new) %>
   </div>
 </div>
