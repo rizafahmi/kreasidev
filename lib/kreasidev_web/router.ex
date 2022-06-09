@@ -18,6 +18,7 @@ defmodule KreasidevWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get("/process/:number", PageController, :process)
 
     resources "/posts", PostController do
       post "/comments", CommentController, :create
