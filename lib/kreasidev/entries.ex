@@ -79,6 +79,7 @@ defmodule Kreasidev.Entries do
     post
     |> Post.changeset(attrs)
     |> Repo.update()
+    |> broadcast(:post_updated)
   end
 
   @doc """
@@ -108,5 +109,16 @@ defmodule Kreasidev.Entries do
   """
   def change_post(%Post{} = post, attrs \\ %{}) do
     Post.changeset(post, attrs)
+  end
+
+  def subscribe() do
+    Phoenix.PubSub.subscribe(Kreasidev.PubSub, "posts")
+  end
+
+  defp broadcast({:error, _reason} = error, _event), do: error
+
+  defp broadcast({:ok, post}, event) do
+    Phoenix.PubSub.broadcast(Kreasidev.PubSub, "posts", {event, post})
+    {:ok, post}
   end
 end
