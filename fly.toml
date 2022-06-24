@@ -1,6 +1,6 @@
-# fly.toml file generated for kreasidev on 2022-05-27T13:38:40+07:00
+# fly.toml file generated for kreasi on 2022-06-24T12:01:13+07:00
 
-app = "kreasidev"
+app = "kreasi"
 
 kill_signal = "SIGTERM"
 kill_timeout = 5
@@ -10,7 +10,7 @@ processes = []
   release_command = "/app/bin/migrate"
 
 [env]
-  PHX_HOST = "kreasidev.fly.dev"
+  PHX_HOST = "kreasi.fly.dev"
   PORT = "8080"
 
 [experimental]
