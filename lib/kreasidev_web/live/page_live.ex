@@ -23,7 +23,7 @@ defmodule KreasidevWeb.PageLive do
     KreasidevWeb.PageView.render("index.html", assigns)
   end
 
-  def handle_info({:post_updated, current_post}, socket) do
+  def handle_info({:post_updated, _current_post}, socket) do
     {:noreply,
      update(socket, :posts, fn _posts ->
        fetch()
@@ -34,7 +34,7 @@ defmodule KreasidevWeb.PageLive do
     current_post = Kreasidev.Entries.get_post!(id)
 
     case Kreasidev.Entries.update_post(current_post, %{upvote: current_post.upvote + 1}) do
-      {:ok, post} ->
+      {:ok, _post} ->
         posts = fetch()
         socket = socket |> assign(posts: posts)
         {:noreply, socket}
