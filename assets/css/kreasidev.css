@@ -8,12 +8,20 @@ body {
 
 header {
   margin: 4rem 2rem;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  flex: 1;
 }
 h1 {
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
+}
+.auth-link {
+  font-weight: bold;
 }
 
 a {
@@ -40,6 +48,12 @@ li.list {
   padding: 8px 16px;
   background: #0d1117;
   color: #fff;
+  cursor: pointer;
+}
+
+.upvote button:disabled {
+  background: black;
+  cursor: default;
 }
 
 .content {

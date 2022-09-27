@@ -10,10 +10,23 @@
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
-    <%= render "_user_menu.html", assigns %>
-    <header>
-      <a href="/"><h1>👾 Kreasi.dev</h1></a>
-    </header>
-    <%= @inner_content %>
+    <%#= render "_user_menu.html", assigns %>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <a href="/"><h1>👾 Kreasi.dev</h1></a>
+        </div>
+        <div class="auth">
+          <%= if @current_user do %>
+            <span class="welcome"><%= @current_user.email %> - <%= link "Logout", to: Routes.user_session_path(@conn, :delete), method: :delete, class: "" %></span>
+          <% else %>
+            <%#= link "Login", to: Routes.user_session_path(@conn, :new) %>
+            <%= link "Login with GitHub", to: Routes.user_oauth_path(@conn, :request, "github") %>
+
+          <% end %>
+        </div>
+      </header>
+      <%= @inner_content %>
+    </div>
   </body>
 </html>

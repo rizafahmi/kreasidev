@@ -1,10 +1,21 @@
 defmodule KreasidevWeb.PageLive do
   use KreasidevWeb, :live_view
+  alias Kreasidev.Accounts
+
+  def mount(_params, %{"user_token" => user_token}, socket) do
+    posts = fetch()
+
+    socket =
+      socket
+      |> assign(posts: posts)
+      |> assign(current_user: Accounts.get_user_by_session_token(user_token))
+
+    {:ok, socket}
+  end
 
   def mount(_params, _session, socket) do
-    # if connected?(socket), do: Kreasidev.Entries.subscribe()
     posts = fetch()
-    socket = socket |> assign(posts: posts)
+    socket = socket |> assign(posts: posts, current_user: nil)
     {:ok, socket}
   end
 
