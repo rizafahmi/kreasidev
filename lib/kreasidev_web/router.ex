@@ -22,8 +22,19 @@ defmodule KreasidevWeb.Router do
 
     live "/", PageLive
     get("/process/:number", PageController, :process)
+  end
 
-    resources "/posts", PostController do
+  scope "/auth", KreasidevWeb do
+    pipe_through [:browser, :redirect_if_user_is_authenticated]
+
+    get "/:provider", UserOauthController, :request
+    get "/:provider/callback", UserOauthController, :callback
+  end
+
+  scope "/posts", KreasidevWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    resources "/", PostController do
       post "/comments", CommentController, :create
     end
   end
