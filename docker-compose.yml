@@ -1,4 +1,4 @@
-version: "3.5"
+version: '3.5'
 
 services:
   db:
@@ -6,14 +6,14 @@ services:
     volumes:
       - 'pgdata:/var/lib/postgresql/data'
     ports:
-      - "5432:5432"
+      - '5432:5432'
     env_file:
       - config/docker.env
 
   app:
     image: kreasidev:0.4.6
     ports:
-      - "4000:4000"
+      - '80:4000'
     env_file:
       - config/docker.env
     depends_on:
