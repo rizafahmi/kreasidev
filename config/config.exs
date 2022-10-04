@@ -12,7 +12,7 @@ config :kreasidev,
 
 # Configures the endpoint
 config :kreasidev, KreasidevWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "127.0.0.1"],
   render_errors: [view: KreasidevWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Kreasidev.PubSub,
   live_view: [signing_salt: "Sv1eJlR1"]

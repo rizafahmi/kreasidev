@@ -10,7 +10,8 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :kreasidev, KreasidevWeb.Endpoint,
-  url: [host: "localhost", port: 4000],
+  url: [host: "127.0.0.1", port: 4000],
+  check_origin: false,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
