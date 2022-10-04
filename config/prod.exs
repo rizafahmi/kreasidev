@@ -14,6 +14,10 @@ config :kreasidev, KreasidevWeb.Endpoint,
   check_origin: false,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: System.get_env("CLIENT_ID"),
+  client_secret: System.get_env("CLIENT_SECRET")
+
 # Do not print debug messages in production
 config :logger, level: :info
 
