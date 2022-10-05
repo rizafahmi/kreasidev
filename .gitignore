@@ -34,3 +34,4 @@ npm-debug.log
 
 
 .env
+config/docker.env

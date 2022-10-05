@@ -7,7 +7,7 @@ defmodule Kreasidev.MixProject do
       version: "0.1.1",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -50,7 +50,7 @@ defmodule Kreasidev.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:ueberauth_github, "~> 0.7"}
+      {:ueberauth_github, "~> 0.8"}
     ]
   end
 
