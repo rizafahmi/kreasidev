@@ -11,7 +11,7 @@ services:
       - config/docker.env
 
   app:
-    image: kreasidev:0.4.6
+    image: kreasidev:0.4.8
     ports:
       - '80:4000'
     env_file:

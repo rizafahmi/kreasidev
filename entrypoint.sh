@@ -12,4 +12,6 @@ bin="/app/bin/kreasidev"
 eval "$bin eval \"Kreasidev.Release.migrate\""
 # start the elixir application
 echo "Starting..."
+echo $CLIENT_ID
+echo $CLIENT_SECRET
 exec "$bin" "start"

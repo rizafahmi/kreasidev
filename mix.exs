@@ -50,7 +50,7 @@ defmodule Kreasidev.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:ueberauth_github, "~> 0.8"}
+      {:ueberauth_github, "~> 0.8.1"}
     ]
   end
 

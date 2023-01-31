@@ -4,7 +4,7 @@ defmodule KreasidevWeb.UserOauthController do
   alias Kreasidev.Accounts
   alias KreasidevWeb.UserAuth
 
-  plug Ueberauth
+  plug(Ueberauth)
 
   @rand_pass_length 32
 
