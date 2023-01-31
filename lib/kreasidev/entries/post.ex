@@ -9,6 +9,7 @@ defmodule Kreasidev.Entries.Post do
     field :upvote, :integer, default: 0
     field :url, :string
     has_many :comments, Kreasidev.Entries.Comment
+    belongs_to :users, Kreasidev.Accounts.User, references: :id
 
     timestamps()
   end
