@@ -9,7 +9,7 @@ defmodule Kreasidev.Entries.Post do
     field :upvote, :integer, default: 0
     field :url, :string
     has_many :comments, Kreasidev.Entries.Comment
-    belongs_to :users, Kreasidev.Accounts.User, references: :id
+    belongs_to :users, Kreasidev.Accounts.User, references: :id, foreign_key: :user_id
 
     timestamps()
   end
@@ -17,7 +17,7 @@ defmodule Kreasidev.Entries.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:title, :url, :body, :upvote, :slug])
+    |> cast(attrs, [:title, :url, :body, :upvote, :slug, :user_id])
     |> validate_required([:title])
   end
 end
