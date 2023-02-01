@@ -20,6 +20,7 @@ defmodule Kreasidev.Entries do
   def list_posts(params \\ %{}) do
     from(
       p in Post,
+      preload: [:users],
       order_by: ^filter_order_by(params["order_by"])
     )
     |> Repo.all()
