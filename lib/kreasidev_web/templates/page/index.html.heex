@@ -9,7 +9,7 @@
           <%=  live_redirect post.title, to: Routes.post_path(@socket, :show, post) %>
         </div>
         <%= if post.url do %>
-          <div class="url"><%= post.url %> - <%= truncate_username(post.users.email) %></div>
+          <div class="url"><%= post.url %> [<%= truncate_username(post.users.email) %>]</div>
         <% end %>
         </div>
         <div class="comment">💭 <%= Enum.count(post.comments) %></div>
