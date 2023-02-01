@@ -14,6 +14,11 @@ header {
 .logo {
   flex: 1;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
 h1 {
   font-style: normal;
   font-weight: 700;
