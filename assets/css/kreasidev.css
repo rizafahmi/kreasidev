@@ -16,7 +16,7 @@ header {
 }
 
 .container {
-  width: 80%;
+  max-width: 85%;
   margin: 0 auto;
 }
 h1 {
