@@ -125,4 +125,17 @@ textarea, input[type="text"] {
   width: 24rem;
 }
 
+.actions {
+  margin-top: 1rem;
+}
 
+.comments {
+  margin-top: 2rem;
+}
+
+.comment {
+  margin-top: 1rem;
+}
+.comment-body {
+  margin: 0;
+}

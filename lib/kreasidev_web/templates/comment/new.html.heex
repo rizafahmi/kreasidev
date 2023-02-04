@@ -1,11 +1,8 @@
-<h2>Komentar</h2>
-
 <%= form_for @comment_changeset, Routes.post_comment_path(@conn, :create, @post), fn f -> %>
-  <%= label f, :body %>
-  <%= textarea f, :body %>
+  <%= textarea f, :body, rows: 12 %>
   <%= error_tag f, :body %>
 
-  <div>
-    <%= submit "Save" %>
+  <div class="actions">
+    <%= submit "Tambahkan komentar" %> <span><%= link "Kembali", to: "/" %></span>
   </div>
 <% end %>
