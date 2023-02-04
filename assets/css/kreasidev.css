@@ -99,3 +99,30 @@ li.list {
   color: #fff;
   text-decoration: none;
 }
+
+.form-element {
+  margin: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background: transparent;
+  padding: 6px 12px;
+  border: 1px solid #c9b997;
+  border-radius: 16px;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+textarea, input[type="text"] {
+  padding: 6px 12px;
+  border: 1px solid #c9b997;
+  border-radius: 16px;
+  width: 24rem;
+}
+
+

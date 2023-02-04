@@ -21,7 +21,7 @@ defmodule KreasidevWeb.PostController do
     case Entries.create_post(post_params) do
       {:ok, _} ->
         conn
-        |> put_flash(:info, "Post created successfully.")
+        |> put_flash(:info, "Kreasi berhasil dibuat.")
         |> redirect(to: "/")
 
       {:error, %Ecto.Changeset{} = changeset} ->
