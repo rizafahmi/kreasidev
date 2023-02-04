@@ -139,3 +139,8 @@ textarea, input[type="text"] {
 .comment-body {
   margin: 0;
 }
+
+small {
+  font-size: 0.75rem;
+  color: darkgray;
+}

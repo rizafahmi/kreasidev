@@ -9,6 +9,7 @@ defmodule Kreasidev.Accounts.User do
     field :confirmed_at, :naive_datetime
 
     has_many :posts, Kreasidev.Entries.Post
+    has_many :comments, Kreasidev.Entries.Comment
 
     timestamps()
   end

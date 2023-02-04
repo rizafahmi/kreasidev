@@ -46,6 +46,16 @@ defmodule Kreasidev.Entries do
   """
   def get_post!(id), do: Repo.get!(Post, id)
 
+  def get_post_preload!(id) do
+    Repo.one(
+      from post in Kreasidev.Entries.Post,
+        where: post.id == ^id,
+        left_join: users in assoc(post, :users),
+        left_join: comments in assoc(post, :comments),
+        preload: [users: {users, comments: comments}]
+    )
+  end
+
   @doc """
   Creates a post.
 
