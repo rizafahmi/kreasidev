@@ -8,7 +8,7 @@
 <div class="comments">
     <%= for comment <- @post.comments do %>
       <div class="comment">
-        <small class="comment-data"><%= get_user_info(comment.user_id) %> - <%= comment.updated_at %></small>
+        <small class="comment-data"><%= get_user_info(comment.user_id) %> - <%= calc_time(comment.updated_at) %></small>
         <p class="comment-body"> <%= comment.body %> </p>
       </div>
     <% end %>

@@ -5,4 +5,8 @@ defmodule KreasidevWeb.PostView do
     user = Kreasidev.Accounts.get_user!(userid)
     String.split(user.email, "@") |> hd
   end
+
+  def calc_time(time) do
+    Kreasidev.Timeutil.calc_time(time)
+  end
 end

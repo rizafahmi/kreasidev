@@ -6,17 +6,18 @@
       </div>
       <div class="content">
         <div class="title">
-        <%= if post.url do %>
-          <%= link post.title, to: post.url, target: "_blank" %>
-          <% else %>
-          <%=  live_redirect post.title, to: Routes.post_path(@socket, :show, post) %>
-          <% end %>
-        </div>
-        <%= if post.url do %>
-          <div class="url"><%= post.url %> - <%= truncate_username(post.users.email) %></div>
-        <% else %>
-          <div class="url"><%= truncate_username(post.users.email) %></div>
-        <% end %>
+          <%= if post.url do %>
+            <%= link post.title, to: post.url, target: "_blank" %>
+            <% else %>
+            <%=  live_redirect post.title, to: Routes.post_path(@socket, :show, post) %>
+            <% end %>
+          </div>
+          <div class="url">
+            <%= if post.url do %>
+              <%= post.url %> - 
+            <% end %>
+            <%= truncate_username(post.users.email) %> - <%= calc_time(post.updated_at) %>
+          </div>
         </div>
         <div class="comment">💭 <%= Enum.count(post.comments) %></div>
   </li>
