@@ -6,6 +6,8 @@ defmodule Kreasidev.Users.User do
   schema "users" do
     pow_user_fields()
 
+    has_many :posts, Kreasidev.Entries.Post
+
     timestamps()
   end
 end

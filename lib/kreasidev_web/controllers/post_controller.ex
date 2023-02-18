@@ -15,11 +15,14 @@ defmodule KreasidevWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
+    user = conn.assigns[:current_user]
+    post_params = Map.put(post_params, "user_id", user.id)
+
     case Entries.create_post(post_params) do
-      {:ok, post} ->
+      {:ok, _post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
-        |> redirect(to: Routes.post_path(conn, :show, post))
+        |> redirect(to: "/")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
