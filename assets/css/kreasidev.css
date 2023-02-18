@@ -8,12 +8,25 @@ body {
 
 header {
   margin: 4rem 2rem;
+  display: flex;
+  align-items: center;
+}
+.logo {
+  flex: 1;
+}
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
 }
 h1 {
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
+}
+.auth-link {
+  font-weight: bold;
 }
 
 a {
@@ -40,6 +53,12 @@ li.list {
   padding: 8px 16px;
   background: #0d1117;
   color: #fff;
+  cursor: pointer;
+}
+
+.upvote button:disabled {
+  background: black;
+  cursor: default;
 }
 
 .content {
@@ -81,7 +100,47 @@ li.list {
   text-decoration: none;
 }
 
-.container {
-  max-width: 85%;
-  margin: 0 auto;
+.form-element {
+  margin: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  background: transparent;
+  padding: 6px 12px;
+  border: 1px solid #c9b997;
+  border-radius: 16px;
+  color: #fff;
+  margin-right: 1rem;
+}
+
+textarea, input[type="text"] {
+  padding: 6px 12px;
+  border: 1px solid #c9b997;
+  border-radius: 16px;
+  width: 24rem;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
+.comments {
+  margin-top: 2rem;
+}
+
+.comment {
+  margin-top: 1rem;
+}
+.comment-body {
+  margin: 0;
+}
+
+small {
+  font-size: 0.75rem;
+  color: darkgray;
 }

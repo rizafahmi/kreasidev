@@ -11,7 +11,18 @@
   </head>
   <body>
     <header>
-      <a href="/"><h1>👾 Kreasi.dev</h1></a>
+      <div class="logo">
+        <a href="/"><h1>👾 Kreasi.dev</h1></a>
+      </div>
+      <div class="auth">
+          <%= if @current_user do %>
+            <span class="welcome"><%= @current_user.email %> - <%= link "Logout", to: Routes.pow_session_path(@conn, :delete), method: :delete, class: "" %></span>
+          <% else %>
+            <%#= link "Login", to: Routes.user_session_path(@conn, :new) %>
+            <%= link "Sign in with GitHub", to: Routes.pow_assent_authorization_path(@conn, :new, "github") %>
+
+          <% end %>
+        </div>
     </header>
     <%= @inner_content %>
   </body>

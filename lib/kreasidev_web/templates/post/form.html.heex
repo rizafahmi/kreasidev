@@ -5,27 +5,25 @@
     </div>
   <% end %>
 
-  <%= label f, :title %>
+<div class="form-element">
+  <%= label f, :judul %>
   <%= text_input f, :title %>
   <%= error_tag f, :title %>
-
+</div>
+<div class="form-element">
   <%= label f, :url %>
   <%= text_input f, :url %>
   <%= error_tag f, :url %>
-
-  <%= label f, :body %>
-  <%= textarea f, :body %>
+</div>
+<div class="form-element">
+  <%= label f, :teks %>
+  <%= textarea f, :body, rows: 6 %>
   <%= error_tag f, :body %>
-
-  <%= label f, :upvote %>
-  <%= number_input f, :upvote %>
-  <%= error_tag f, :upvote %>
-
-  <%= label f, :slug %>
-  <%= text_input f, :slug %>
-  <%= error_tag f, :slug %>
+</div>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Simpan" %>
+
+    <%= link "Kembali", to: "/" %>
   </div>
 </.form>

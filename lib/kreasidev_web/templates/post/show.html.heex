@@ -1,42 +1,15 @@
-<h1>Show Post</h1>
-
-<ul>
-
-  <li>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </li>
-
-  <li>
-    <strong>Url:</strong>
-    <%= @post.url %>
-  </li>
-
-  <li>
-    <strong>Body:</strong>
-    <%= @post.body %>
-  </li>
-
-  <li>
-    <strong>Upvote:</strong>
-    <%= @post.upvote %>
-  </li>
-
-  <li>
-    <strong>Slug:</strong>
-    <%= @post.slug %>
-  </li>
-
-</ul>
+<strong><%= link @post.title, to: Routes.post_path(@conn, :show, @post.id) %></strong>
+<p>
+  <%= @post.body %>
+</p>
 
 <%= render KreasidevWeb.CommentView, "new.html", conn: @conn, post: @post, comment_changeset: @comment_changeset %>
 
-<hr />
-<ul>
-  <%= for comment <- @post.comments do %>
-    <li><%= comment.body %></li>
-  <% end %>
-</ul>
-
-<span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span> |
-<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
+<div class="comments">
+    <%= for comment <- @post.comments do %>
+      <div class="comment">
+        <small class="comment-data"><%= get_user_info(comment.user_id) %> - <%= calc_time(comment.updated_at) %></small>
+        <p class="comment-body"> <%= comment.body %> </p>
+      </div>
+    <% end %>
+</div>
