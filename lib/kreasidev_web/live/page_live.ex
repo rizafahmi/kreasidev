@@ -36,7 +36,7 @@ defmodule KreasidevWeb.PageLive do
   def handle_event("upvote", %{"id" => id}, socket) do
     current_post = Kreasidev.Entries.get_post!(id)
 
-    if check_voters(current_post.voters, socket.assigns.current_user.id) do
+    if check_voters(current_post.voters, socket.assigns.current_user) do
       {:noreply, socket}
     else
       case Kreasidev.Entries.update_post(current_post, %{
@@ -70,8 +70,12 @@ defmodule KreasidevWeb.PageLive do
     false
   end
 
-  defp check_voters(voters, current_userid) do
-    case Enum.find_index(voters, fn voter -> voter == current_userid end) do
+  defp check_voters(_voters, nil) do
+    false
+  end
+
+  defp check_voters(voters, current_user) do
+    case Enum.find_index(voters, fn voter -> voter == current_user.id end) do
       nil -> false
       _ -> true
     end

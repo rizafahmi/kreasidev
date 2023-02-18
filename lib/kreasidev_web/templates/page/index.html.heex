@@ -2,7 +2,8 @@
   <%= for post <- @posts do %>
   <li class="list">
     <div class="upvote">
-      <button phx-click="upvote" phx-value-id={ post.id }>🔼 <%= post.upvote %></button>
+      <button disabled={ !@current_user } title="Login to upvote" phx-click="upvote" phx-value-id={ post.id }>🔼 <%= post.upvote %></button>
+
     </div>
     <div class="content">
       <div class="title">
