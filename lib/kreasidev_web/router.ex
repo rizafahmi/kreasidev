@@ -1,5 +1,7 @@
 defmodule KreasidevWeb.Router do
+  alias Kreasidev.Entries.Post
   use KreasidevWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,13 +16,28 @@ defmodule KreasidevWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
+  scope "/" do
+    pipe_through :browser
+
+    pow_routes()
+  end
+
   scope "/", KreasidevWeb do
     pipe_through :browser
 
     live "/", PageLive
     get("/process/:number", PageController, :process)
+  end
 
-    resources "/posts", PostController do
+  scope "/posts", KreasidevWeb do
+    pipe_through [:browser, :protected]
+
+    resources "/", PostController do
       post "/comments", CommentController, :create
     end
   end
