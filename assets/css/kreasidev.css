@@ -80,3 +80,8 @@ li.list {
   color: #fff;
   text-decoration: none;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
