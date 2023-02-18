@@ -49,7 +49,17 @@ config :phoenix, :json_library, Jason
 
 config :kreasidev, :pow,
   user: Kreasidev.Users.User,
-  repo: Kreasidev.Repo
+  repo: Kreasidev.Repo,
+  web_module: KreasidevWeb
+
+config :kreasidev, :pow_assent,
+  providers: [
+    github: [
+      client_id: System.get_env("CLIENT_ID"),
+      client_secret: System.get_env("CLIENT_SECRET"),
+      strategy: Assent.Strategy.Github
+    ]
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
