@@ -7,6 +7,7 @@ defmodule Kreasidev.Users.User do
     pow_user_fields()
 
     has_many :posts, Kreasidev.Entries.Post
+    has_many :comments, Kreasidev.Entries.Comment
 
     timestamps()
   end

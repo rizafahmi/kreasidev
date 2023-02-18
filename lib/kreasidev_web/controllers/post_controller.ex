@@ -21,7 +21,7 @@ defmodule KreasidevWeb.PostController do
     case Entries.create_post(post_params) do
       {:ok, _post} ->
         conn
-        |> put_flash(:info, "Post created successfully.")
+        |> put_flash(:info, "Kreasi baru berhasil ditambahkan.")
         |> redirect(to: "/")
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -48,7 +48,7 @@ defmodule KreasidevWeb.PostController do
     case Entries.update_post(post, post_params) do
       {:ok, post} ->
         conn
-        |> put_flash(:info, "Post updated successfully.")
+        |> put_flash(:info, "Kreasi berhasil diubah.")
         |> redirect(to: Routes.post_path(conn, :show, post))
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -61,7 +61,7 @@ defmodule KreasidevWeb.PostController do
     {:ok, _post} = Entries.delete_post(post)
 
     conn
-    |> put_flash(:info, "Post deleted successfully.")
+    |> put_flash(:info, "Kreasi berhasil dihapus.")
     |> redirect(to: Routes.post_path(conn, :index))
   end
 end

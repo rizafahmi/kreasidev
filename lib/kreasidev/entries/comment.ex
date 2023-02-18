@@ -6,6 +6,7 @@ defmodule Kreasidev.Entries.Comment do
     field :body, :string
     # field :post_id, :id
     belongs_to :post, Kreasidev.Entries.Post
+    belongs_to :users, Kreasidev.Users.User, references: :id, foreign_key: :user_id
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule Kreasidev.Entries.Comment do
   @doc false
   def changeset(comment, attrs) do
     comment
-    |> cast(attrs, [:body])
+    |> cast(attrs, [:body, :user_id])
     |> validate_required([:body])
   end
 end
