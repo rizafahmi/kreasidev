@@ -3,6 +3,7 @@ import Config
 # Configure your database
 config :kreasidev, Kreasidev.Repo,
   url: System.get_env("DATABASE_URL"),
+  database: "kreasidev_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
