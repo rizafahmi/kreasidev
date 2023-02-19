@@ -50,7 +50,8 @@ config :phoenix, :json_library, Jason
 config :kreasidev, :pow,
   user: Kreasidev.Users.User,
   repo: Kreasidev.Repo,
-  web_module: KreasidevWeb
+  web_module: KreasidevWeb,
+  messages_backend: KreasidevWeb.Pow.Messages
 
 config :kreasidev, :pow_assent,
   providers: [
